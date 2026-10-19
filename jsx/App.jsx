@@ -45,6 +45,8 @@ function MainLayout() {
       // Teacher
       case 'teacher-assignments':
         return <TeacherAssignmentManager />;
+      case 'teacher-rubric':
+        return <TeacherAssignmentManager />;
       case 'teacher-submissions':
         return (
           <SubmissionsList 
@@ -87,9 +89,9 @@ function MainLayout() {
 
   return (
     <div className="app-container">
-      <Navbar />
-      <div className="main-content">
-        <Sidebar />
+      <Sidebar />
+      <div className="main-viewport">
+        <Navbar />
         <main className="page-body">
           {renderContent()}
         </main>

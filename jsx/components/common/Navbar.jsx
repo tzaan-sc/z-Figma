@@ -32,18 +32,16 @@ export default function Navbar() {
   return (
     <>
       <header className="top-nav">
-        {/* Brand: CodeAssess / ETV Design System */}
+        {/* Breadcrumb / Section Context */}
         <div className="nav-brand">
-          <div className="brand-icon">
-            <Code2 size={20} />
-          </div>
-          <div>
-            <div style={{ fontSize: '16px', fontWeight: 800, lineHeight: 1.2, color: 'var(--brand-primary)', letterSpacing: '-0.02em' }}>
-              CodeAssess
-            </div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.08em', fontWeight: 700, textTransform: 'uppercase' }}>
-              ETV DESIGN SYSTEM
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)' }}>
+              Không gian làm việc
+            </span>
+            <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>/</span>
+            <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--brand-primary)' }}>
+              {currentUser.roleLabel}
+            </span>
           </div>
         </div>
 

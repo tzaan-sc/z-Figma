@@ -175,15 +175,18 @@ code, pre {
    ========================================================================== */
 .app-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
   background-color: var(--bg-page);
 }
 
-.main-content {
-  display: flex;
+.main-viewport {
   flex: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Main content: padding ngoài 28px - 32px, max 1440px chuẩn Desktop */
@@ -309,65 +312,173 @@ code, pre {
 }
 
 /* ==========================================================================
-   SIDEBAR (Độ rộng chuẩn 260px - 288px; Active: Brand Primary + Info-bg)
+   ETV SIDEBAR (Tham khảo chính xác theo thiết kế Petrol & Baby Blue)
    ========================================================================== */
-.sidebar {
+.etv-sidebar {
   width: 270px;
   min-width: 270px;
-  background: var(--bg-surface);
-  border-right: 1px solid var(--border-default);
-  padding: 24px 14px;
+  max-width: 270px;
+  background-color: #172D45;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 16px 32px 16px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  z-index: 60;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
 }
 
-.sidebar-section-title {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  padding: 0 12px;
-  margin-bottom: 8px;
-}
-
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  list-style: none;
-}
-
-.sidebar-item {
+/* 1. Header Brand & Logo */
+.etv-sidebar-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
+  padding: 2px 4px;
+}
+
+.etv-logo-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.etv-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.etv-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.etv-brand-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.etv-brand-subtitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* 2. Role Status Pill Container */
+.etv-role-badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0F2236;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.etv-role-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.etv-role-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FDE047;
+  box-shadow: 0 0 8px rgba(253, 224, 71, 0.7);
+  display: inline-block;
+}
+
+.etv-role-title {
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+.etv-status-pill {
+  background-color: #FEF3C7;
+  color: #1E293B;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Navigation Menu */
+.etv-sidebar-nav {
+  margin-top: 6px;
+}
+
+.etv-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.etv-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.18s ease;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #CBD5E1;
+  user-select: none;
   border: 1px solid transparent;
 }
 
-.sidebar-item:hover {
-  color: var(--text-primary);
-  background: var(--bg-subtle);
+.etv-sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
-/* Quy tắc: Active item được highlight bằng Brand Primary + Info-bg */
-.sidebar-item.active {
-  color: var(--brand-primary);
-  background: var(--info-bg);
-  border-color: var(--info-border);
-  font-weight: 600;
+.etv-sidebar-item.active {
+  background-color: #93C5FD;
+  color: #0F3564;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(147, 197, 253, 0.28);
 }
 
-.sidebar-item.active svg {
-  color: var(--brand-primary);
+.etv-sidebar-item.active .etv-item-icon svg {
+  color: #0F3564;
+  stroke-width: 2.3px;
+}
+
+.etv-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.etv-item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ==========================================================================
