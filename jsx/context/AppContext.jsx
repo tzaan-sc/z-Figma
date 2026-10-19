@@ -52,7 +52,7 @@ export function AppProvider({ children }) {
 
     // Set default screen for each role
     if (role === 'student') setCurrentTab('assignments');
-    else if (role === 'teacher') setCurrentTab('teacher-assignments');
+    else if (role === 'teacher') setCurrentTab('teacher-overview');
     else if (role === 'admin') setCurrentTab('admin-users');
     else if (role === 'dept_admin') setCurrentTab('admin-classes');
     else if (role === 'sys_admin') setCurrentTab('sys-ai');

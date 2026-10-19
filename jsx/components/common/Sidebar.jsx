@@ -14,26 +14,27 @@ import {
   Building2, 
   Cpu, 
   Terminal,
-  BookOpen
+  BookOpen,
+  GraduationCap
 } from 'lucide-react';
 
 export default function Sidebar() {
   const { currentRole, currentTab, setCurrentTab, currentUser } = useApp();
 
-  // Định nghĩa menu theo hình ảnh tham khảo
+  // Định nghĩa menu chính xác theo phân quyền nghiệp vụ và màn hình thực tế
   let menuItems = [];
 
   if (currentRole === 'teacher') {
     menuItems = [
-      { id: 'teacher-assignments', label: 'Tổng quan', icon: <LayoutGrid size={20} /> },
-      { id: 'teacher-classes', label: 'Quản lý bài tập', icon: <ClipboardList size={20} /> },
-      { id: 'teacher-rubric', label: 'Cấu hình Tests & Rubric', icon: <SlidersHorizontal size={20} /> },
-      { id: 'teacher-submissions', label: 'Bài nộp', icon: <FileCheck size={20} /> },
-      { id: 'teacher-grading', label: 'Chấm bài', icon: <ListChecks size={20} /> },
+      { id: 'teacher-overview', label: 'Tổng quan', icon: <LayoutGrid size={20} /> },
+      { id: 'teacher-assignments', label: 'Quản lý bài tập', icon: <ClipboardList size={20} /> },
+      { id: 'teacher-classes', label: 'Lớp học phụ trách', icon: <GraduationCap size={20} /> },
+      { id: 'teacher-submissions', label: 'Bài nộp sinh viên', icon: <FileCheck size={20} /> },
+      { id: 'teacher-grading', label: 'Chấm bài & Đạo văn', icon: <ListChecks size={20} /> },
     ];
   } else if (currentRole === 'student') {
     menuItems = [
-      { id: 'assignments', label: 'Tổng quan bài tập', icon: <LayoutGrid size={20} /> },
+      { id: 'assignments', label: 'Danh sách bài tập', icon: <BookOpen size={20} /> },
       { id: 'workspace', label: 'Web IDE & Nộp bài', icon: <Code2 size={20} /> },
       { id: 'result-view', label: 'Kết quả & AI Review', icon: <Sparkles size={20} /> },
       { id: 'gradebook', label: 'Bảng điểm cá nhân', icon: <Award size={20} /> },
@@ -53,7 +54,7 @@ export default function Sidebar() {
     menuItems = [
       { id: 'sys-ai', label: 'Cấu hình AI Engine', icon: <SlidersHorizontal size={20} /> },
       { id: 'sys-docker', label: 'Docker Sandbox', icon: <Cpu size={20} /> },
-      { id: 'sys-logs', label: 'Quản lý System Logs', icon: <Terminal size={20} /> },
+      { id: 'sys-logs', label: 'Nhật ký hệ thống', icon: <Terminal size={20} /> },
     ];
   }
 

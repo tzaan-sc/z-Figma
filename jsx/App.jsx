@@ -11,6 +11,7 @@ import SubmissionResultView from './components/student/SubmissionResultView';
 import StudentGradebook from './components/student/StudentGradebook';
 
 // Teacher screens
+import TeacherOverview from './components/teacher/TeacherOverview';
 import TeacherAssignmentManager from './components/teacher/TeacherAssignmentManager';
 import SubmissionsList from './components/teacher/SubmissionsList';
 import GradingWorkspace from './components/teacher/GradingWorkspace';
@@ -43,6 +44,8 @@ function MainLayout() {
         return <StudentGradebook />;
 
       // Teacher
+      case 'teacher-overview':
+        return <TeacherOverview />;
       case 'teacher-assignments':
         return <TeacherAssignmentManager />;
       case 'teacher-rubric':
