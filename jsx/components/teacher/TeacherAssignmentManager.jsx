@@ -117,7 +117,7 @@ export default function TeacherAssignmentManager() {
           <tbody>
             {assignments.map(asg => (
               <tr key={asg.id}>
-                <td style={{ fontWeight: 700, color: 'var(--text-accent)' }}>{asg.code}</td>
+                <td style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{asg.code}</td>
                 <td>
                   <div style={{ fontWeight: 600 }}>{asg.title}</div>
                   <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>

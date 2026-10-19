@@ -191,7 +191,6 @@ export default function DockerSandboxManager() {
         <form onSubmit={handleSaveConfig} className="glass-card" style={{ maxWidth: '800px' }}>
           <h3 style={{ fontSize: '17px', color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Sliders size={18} color="var(--brand-primary)" /> Thiết lập tham số môi trường cách ly (UC-41)
-          </h3>Sliders size={18} color="var(--primary)" /> Thiết lập tham số môi trường cách ly (UC-41)
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -242,7 +241,7 @@ export default function DockerSandboxManager() {
                   checked={networkIsolation} 
                   onChange={e => setNetworkIsolation(e.target.checked)} 
                 />
-                <span style={{ fontSize: '13.5px', color: '#fff', fontWeight: 600 }}>
+                <span style={{ fontSize: '13.5px', color: 'var(--text-primary)', fontWeight: 600 }}>
                   Bật cấm mạng tuyệt đối (--network none)
                 </span>
               </label>

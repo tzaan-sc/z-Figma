@@ -113,7 +113,7 @@ export default function SystemLogs() {
                   <td>
                     <span className="badge badge-purple">{log.service}</span>
                   </td>
-                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#e2e8f0' }}>
+                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--text-primary)' }}>
                     {log.message}
                   </td>
                 </tr>
