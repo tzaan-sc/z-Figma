@@ -54,15 +54,15 @@
 
 
   /* ========================================================================
-     3. MÀU BỀ MẶT & NỀN TRANG NỘI DUNG (60% NỀN SÁNG CAO CẤP)
+     3. MÀU BỀ MẶT & NỀN TRANG NỘI DUNG (CHUẨN TONE VÀNG NGÀ KEM IVORY THEO ẢNH)
      ======================================================================== */
-  --bg-page: #F4F7FB;                      /* Nền trang xám ánh xanh petrol siêu nhẹ dịu mắt */
-  --bg-surface: #FFFFFF;                   /* Nền Card, Bảng, Navbar trên cùng */
-  --bg-subtle: #EDF2F7;                    /* Nền ô search, ô role switch */
+  --bg-page: #FEF3C7;                      /* Nền trang vàng ngà kem (Ivory Warm Cream) chuẩn theo ảnh */
+  --bg-surface: #FFFFFF;                   /* Nền Card, Bảng nổi bật trên nền ngà */
+  --bg-subtle: #FFFBEB;                    /* Nền ô search, ô role switch nhẹ nhàng */
   --bg-elevated: #FFFFFF;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #F8FAFC;
-  --bg-glass: rgba(255, 255, 255, 0.96);
+  --bg-card-hover: #FFFDF5;
+  --bg-glass: rgba(255, 255, 255, 0.95);
 
   /* Khối Dark Code & Terminal (Monaco Code Editor, Sandbox Logs) */
   --bg-dark-code: #0F172A;
