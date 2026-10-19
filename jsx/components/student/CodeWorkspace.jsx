@@ -84,7 +84,7 @@ export default function CodeWorkspace() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 110px)', gap: '12px' }}>
       {/* Top Header Bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '10px 18px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-surface)', padding: '10px 18px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-default)', boxShadow: 'var(--shadow-xs)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <button 
             className="btn btn-secondary btn-sm" 
@@ -93,10 +93,10 @@ export default function CodeWorkspace() {
             <ArrowLeft size={14} /> Danh sách
           </button>
           <div>
-            <span style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-accent)' }}>
+            <span style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--brand-primary)' }}>
               {assignment.code} • {assignment.className}
             </span>
-            <h2 style={{ fontSize: '16px', fontWeight: 700, color: '#fff', margin: 0 }}>
+            <h2 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
               {assignment.title}
             </h2>
           </div>
@@ -132,7 +132,6 @@ export default function CodeWorkspace() {
               <button 
                 className="btn btn-primary btn-sm" 
                 onClick={() => setIsSubmitModalOpen(true)}
-                style={{ background: 'linear-gradient(135deg, #10b981, #059669)', border: 'none' }}
               >
                 <Send size={14} /> Nộp bài chính thức (UC-11)
               </button>
@@ -155,22 +154,23 @@ export default function CodeWorkspace() {
 
       {/* Strict Rule Notice: NO RUN CODE BUTTON FOR STUDENTS */}
       <div style={{ 
-        background: 'rgba(99, 102, 241, 0.08)', 
-        border: '1px solid rgba(99, 102, 241, 0.25)', 
+        background: 'var(--info-bg)', 
+        border: '1px solid var(--info-border)', 
         borderRadius: 'var(--radius-md)', 
         padding: '8px 16px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        fontSize: '12.5px'
+        fontSize: '12.5px',
+        color: 'var(--info-text)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#c7d2fe' }}>
-          <ShieldAlert size={16} color="var(--primary)" />
-          <span>
-            <strong>Quy tắc hệ thống (RULES.md):</strong> Sinh viên không có tính năng chạy thử (Run Code) trên Sample Test Cases. Hệ thống tự động chấm gom (Batch Grading) sau Deadline qua Docker Sandbox.
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <ShieldAlert size={16} color="var(--brand-primary)" />
+          <span style={{ color: 'var(--text-primary)' }}>
+            <strong style={{ color: 'var(--brand-primary)' }}>Quy tắc hệ thống (RULES.md):</strong> Sinh viên không có tính năng chạy thử (Run Code) trên Sample Test Cases. Hệ thống tự động chấm gom (Batch Grading) sau Deadline qua Docker Sandbox.
           </span>
         </div>
-        <div style={{ color: 'var(--warning)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <div style={{ color: 'var(--warning-text)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Clock size={13} /> Hạn nộp: {assignment.deadline}
         </div>
       </div>
@@ -180,8 +180,8 @@ export default function CodeWorkspace() {
         {/* Left Column: Problem Specs, Sample Tests, Constraints */}
         <div className="glass-card" style={{ padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '18px' }}>
           <div>
-            <h3 style={{ fontSize: '15px', color: '#fff', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <FileCode size={16} color="var(--primary)" /> Yêu cầu đề bài
+            <h3 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FileCode size={16} color="var(--brand-primary)" /> Yêu cầu đề bài
             </h3>
             <div style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
               {assignment.description}
@@ -189,20 +189,23 @@ export default function CodeWorkspace() {
           </div>
 
           <div>
-            <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '8px' }}>
-              Sample Test Cases (Tham khảo)
-            </h4>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '14px', color: 'var(--text-primary)' }}>
+                Sample Test Cases (Tham khảo)
+              </h4>
+              <Badge status="SAMPLE" type="test-visibility" />
+            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {assignment.sampleTests?.map((st, i) => (
-                <div key={i} style={{ background: 'var(--bg-primary)', padding: '10px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
-                  <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)' }}>VÍ DỤ {i + 1}</div>
+                <div key={i} style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-default)' }}>
+                  <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--brand-primary)' }}>VÍ DỤ {i + 1}</div>
                   <div style={{ marginTop: '4px', fontSize: '12.5px' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Input: </span>
-                    <code style={{ color: '#38bdf8' }}>{st.input}</code>
+                    <code style={{ color: 'var(--text-primary)', background: '#FFFFFF', padding: '1px 6px', borderRadius: '4px', border: '1px solid var(--border-default)' }}>{st.input}</code>
                   </div>
-                  <div style={{ marginTop: '2px', fontSize: '12.5px' }}>
+                  <div style={{ marginTop: '4px', fontSize: '12.5px' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Expected Output: </span>
-                    <code style={{ color: '#4ade80' }}>{st.output}</code>
+                    <code style={{ color: 'var(--success-text)', background: '#FFFFFF', padding: '1px 6px', borderRadius: '4px', border: '1px solid var(--border-default)', fontWeight: 600 }}>{st.output}</code>
                   </div>
                 </div>
               ))}
@@ -211,14 +214,14 @@ export default function CodeWorkspace() {
 
           {assignment.rubrics && assignment.rubrics.length > 0 && (
             <div>
-              <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '14px', color: 'var(--text-primary)', marginBottom: '8px' }}>
                 Thang điểm Rubric
               </h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12.5px' }}>
                 {assignment.rubrics.map(r => (
-                  <li key={r.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 10px', background: 'rgba(0,0,0,0.2)', borderRadius: '4px' }}>
+                  <li key={r.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--bg-subtle)', borderRadius: '6px', border: '1px solid var(--border-default)' }}>
                     <span style={{ color: 'var(--text-secondary)' }}>{r.criterion}</span>
-                    <span style={{ color: 'var(--text-accent)', fontWeight: 700 }}>{r.weight}%</span>
+                    <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>{r.weight}%</span>
                   </li>
                 ))}
               </ul>
@@ -228,18 +231,19 @@ export default function CodeWorkspace() {
 
         {/* Right Column: Code Editor */}
         <div style={{ 
-          background: '#0d111b', 
+          background: 'var(--bg-dark-code)', 
           borderRadius: 'var(--radius-lg)', 
-          border: '1px solid var(--border-subtle)', 
+          border: '1px solid #1E293B', 
           display: 'flex', 
           flexDirection: 'column', 
-          overflow: 'hidden' 
+          overflow: 'hidden',
+          boxShadow: 'var(--shadow-sm)'
         }}>
           {/* Editor Sub-header */}
           <div style={{ 
             height: '42px', 
-            background: '#131929', 
-            borderBottom: '1px solid var(--border-subtle)', 
+            background: 'var(--bg-dark-code-header)', 
+            borderBottom: '1px solid #334155', 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'space-between', 
@@ -350,16 +354,16 @@ export default function CodeWorkspace() {
         }
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', textAlign: 'center', padding: '10px 0' }}>
-          <AlertTriangle size={54} color="#f59e0b" style={{ margin: '0 auto' }} />
-          <h4 style={{ fontSize: '17px', color: '#fff' }}>
+          <AlertTriangle size={54} color="var(--warning)" style={{ margin: '0 auto' }} />
+          <h4 style={{ fontSize: '17px', color: 'var(--text-primary)' }}>
             Bạn có chắc chắn muốn nộp bài làm?
           </h4>
           <div style={{ 
-            background: 'rgba(239, 68, 68, 0.1)', 
-            border: '1px solid rgba(239, 68, 68, 0.3)', 
+            background: 'var(--danger-bg)', 
+            border: '1px solid var(--danger-border)', 
             padding: '14px', 
             borderRadius: 'var(--radius-md)',
-            color: '#fca5a5',
+            color: 'var(--danger-text)',
             fontSize: '13.5px',
             lineHeight: 1.5,
             textAlign: 'left'

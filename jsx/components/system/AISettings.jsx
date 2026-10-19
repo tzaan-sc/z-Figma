@@ -37,8 +37,8 @@ export default function AISettings() {
 
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
         <form onSubmit={handleSave} className="glass-card">
-          <h3 style={{ fontSize: '16px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Sliders size={18} color="var(--primary)" /> Tham số mô hình AI phục vụ Code Review & Socratic Tutor
+          <h3 style={{ fontSize: '16px', color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Sliders size={18} color="var(--brand-primary)" /> Tham số mô hình AI phục vụ Code Review & Socratic Tutor
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
@@ -132,7 +132,7 @@ export default function AISettings() {
         {/* AI System Status Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div className="glass-card">
-            <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }}>Trạng thái AI Gateway</h4>
+            <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '10px' }}>Trạng thái AI Gateway</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Tình trạng:</span>
@@ -140,21 +140,21 @@ export default function AISettings() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Độ trễ trung bình:</span>
-                <span style={{ color: '#fff', fontWeight: 600 }}>240ms</span>
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>240ms</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Số request hôm nay:</span>
-                <span style={{ color: 'var(--text-accent)', fontWeight: 700 }}>1,280 calls</span>
+                <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>1,280 calls</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Tỷ lệ lỗi (Error rate):</span>
-                <span style={{ color: 'var(--success)', fontWeight: 600 }}>0.02%</span>
+                <span style={{ color: 'var(--success-text)', fontWeight: 600 }}>0.02%</span>
               </div>
             </div>
           </div>
 
-          <div className="glass-card" style={{ background: 'rgba(99, 102, 241, 0.05)', border: '1px solid rgba(99, 102, 241, 0.2)' }}>
-            <h5 style={{ fontSize: '13px', color: 'var(--text-accent)', marginBottom: '6px' }}>Pedagogic Guardrails</h5>
+          <div className="glass-card" style={{ background: 'var(--info-bg)', border: '1px solid var(--info-border)' }}>
+            <h5 style={{ fontSize: '13px', color: 'var(--brand-primary)', marginBottom: '6px' }}>Pedagogic Guardrails</h5>
             <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
               Hệ thống tự động nhúng system prompt Socratic, cấm mô hình sinh ra mã nguồn giải sẵn cho sinh viên trong mọi tình huống.
             </p>

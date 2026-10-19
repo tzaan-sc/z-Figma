@@ -89,7 +89,7 @@ export default function DockerSandboxManager() {
             </div>
 
             <div className="stat-card">
-              <div className="stat-icon" style={{ background: 'rgba(59, 130, 246, 0.15)', color: 'var(--info)' }}>
+              <div className="stat-icon" style={{ background: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
                 <ShieldCheck size={26} />
               </div>
               <div>
@@ -101,8 +101,8 @@ export default function DockerSandboxManager() {
 
           {/* Active Containers Grid */}
           <div className="glass-card">
-            <h3 style={{ fontSize: '16px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Radio size={18} color="var(--success)" /> Danh sách Container Workers đang chạy
+            <h3 style={{ fontSize: '16px', color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Radio size={18} color="var(--success-text)" /> Danh sách Container Workers đang chạy
             </h3>
 
             <div className="data-table-container">
@@ -122,7 +122,7 @@ export default function DockerSandboxManager() {
                 <tbody>
                   {dockerContainers.map(c => (
                     <tr key={c.id}>
-                      <td style={{ fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--text-accent)' }}>
+                      <td style={{ fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--brand-primary)' }}>
                         {c.id}
                       </td>
                       <td style={{ fontWeight: 600 }}>{c.name}</td>
@@ -154,22 +154,28 @@ export default function DockerSandboxManager() {
           </div>
 
           {/* Live Execution Logs Window */}
-          <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
-            <div style={{ padding: '12px 18px', background: '#0a0d15', borderBottom: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Terminal size={16} color="var(--primary)" />
-              <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#fff' }}>
+          <div style={{ 
+            background: 'var(--bg-dark-code)', 
+            borderRadius: 'var(--radius-lg)', 
+            border: '1px solid #1E293B', 
+            overflow: 'hidden', 
+            boxShadow: 'var(--shadow-sm)' 
+          }}>
+            <div style={{ padding: '12px 18px', background: 'var(--bg-dark-code-header)', borderBottom: '1px solid #334155', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Terminal size={16} color="var(--brand-primary)" />
+              <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#F8FAFC' }}>
                 Docker Engine Event Stream (Live Telemetry)
               </span>
             </div>
             <div style={{ 
-              background: '#07090e', 
+              background: 'var(--bg-dark-code)', 
               padding: '16px', 
               fontFamily: 'var(--font-mono)', 
               fontSize: '12.5px', 
               color: '#38bdf8', 
-              lineHeight: 1.6,
-              height: '160px',
-              overflowY: 'auto'
+              lineHeight: 1.6, 
+              height: '160px', 
+              overflowY: 'auto' 
             }}>
               <div>[2026-10-19 21:18:40] [sbx-node-01] container spawned: image=python:3.11-slim user=sandbox_user caps=drop_all</div>
               <div>[2026-10-19 21:18:41] [sbx-node-01] memory cgroup enforced: limit=256MB swappiness=0</div>
@@ -183,8 +189,9 @@ export default function DockerSandboxManager() {
       {/* Tab UC-41: Sandbox Configuration */}
       {activeTab === 'config' && (
         <form onSubmit={handleSaveConfig} className="glass-card" style={{ maxWidth: '800px' }}>
-          <h3 style={{ fontSize: '17px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Sliders size={18} color="var(--primary)" /> Thiết lập tham số môi trường cách ly (UC-41)
+          <h3 style={{ fontSize: '17px', color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Sliders size={18} color="var(--brand-primary)" /> Thiết lập tham số môi trường cách ly (UC-41)
+          </h3>Sliders size={18} color="var(--primary)" /> Thiết lập tham số môi trường cách ly (UC-41)
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>

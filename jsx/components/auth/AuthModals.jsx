@@ -94,7 +94,7 @@ export function ProfileModal({ isOpen, onClose }) {
               {currentUser.avatar}
             </div>
             <div>
-              <h4 style={{ fontSize: '18px', color: '#fff' }}>{currentUser.name}</h4>
+              <h4 style={{ fontSize: '18px', color: 'var(--text-primary)' }}>{currentUser.name}</h4>
               <p style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>{currentUser.code} • {currentUser.roleLabel}</p>
               <span className="badge badge-completed" style={{ marginTop: '6px' }}>
                 <Check size={12} /> Tài khoản đang hoạt động
@@ -105,20 +105,20 @@ export function ProfileModal({ isOpen, onClose }) {
           <div className="glass-card" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px' }}>
               <span style={{ color: 'var(--text-muted)' }}>Email xác thực:</span>
-              <span style={{ color: '#fff', fontWeight: 500 }}>{currentUser.email}</span>
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{currentUser.email}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px' }}>
               <span style={{ color: 'var(--text-muted)' }}>Số điện thoại:</span>
-              <span style={{ color: '#fff', fontWeight: 500 }}>{currentUser.phone || '0987654321'}</span>
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{currentUser.phone || '0987654321'}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px' }}>
               <span style={{ color: 'var(--text-muted)' }}>Đơn vị / Khoa:</span>
-              <span style={{ color: '#fff', fontWeight: 500 }}>{currentUser.department}</span>
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{currentUser.department}</span>
             </div>
             {currentUser.className && (
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Lớp sinh hoạt:</span>
-                <span style={{ color: 'var(--primary)', fontWeight: 600 }}>{currentUser.className}</span>
+                <span style={{ color: 'var(--brand-primary)', fontWeight: 600 }}>{currentUser.className}</span>
               </div>
             )}
           </div>
@@ -298,7 +298,7 @@ export function ForgotPasswordModal({ isOpen, onClose }) {
       ) : (
         <form onSubmit={handleResetPassword}>
           <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginBottom: '16px' }}>
-            Nhập mã OTP đã được gửi đến <strong style={{ color: '#fff' }}>{email}</strong> và mật khẩu mới của bạn.
+            Nhập mã OTP đã được gửi đến <strong style={{ color: 'var(--brand-primary)' }}>{email}</strong> và mật khẩu mới của bạn.
           </p>
           <div className="form-group">
             <label className="form-label">Mã xác thực OTP (6 chữ số)</label>

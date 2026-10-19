@@ -50,16 +50,16 @@ export default function GradingWorkspace({ submission, onBack }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 110px)', gap: '14px' }}>
       {/* Top Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '10px 18px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-surface)', padding: '10px 18px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-default)', boxShadow: 'var(--shadow-xs)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <button className="btn btn-secondary btn-sm" onClick={onBack}>
             <ArrowLeft size={14} /> Trở lại danh sách
           </button>
           <div>
-            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-accent)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--brand-primary)' }}>
               Đang chấm bài: {submission.studentName} ({submission.studentCode})
             </span>
-            <h2 style={{ fontSize: '16px', fontWeight: 800, color: '#fff', margin: 0 }}>
+            <h2 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
               {assignment.title}
             </h2>
           </div>
@@ -68,7 +68,7 @@ export default function GradingWorkspace({ submission, onBack }) {
         {/* Action Buttons */}
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
-            Điểm tổng kết: <strong style={{ color: 'var(--success)', fontSize: '16px' }}>{calculatedScore} / 10</strong>
+            Điểm tổng kết: <strong style={{ color: 'var(--success-text)', fontSize: '16px' }}>{calculatedScore} / 10</strong>
           </div>
           <button className="btn btn-secondary btn-sm" onClick={handleSaveDraftGrading}>
             <Save size={14} /> Lưu bản tạm
@@ -83,15 +83,16 @@ export default function GradingWorkspace({ submission, onBack }) {
       <div style={{ display: 'grid', gridTemplateColumns: '55% 45%', gap: '14px', flex: 1, minHeight: 0 }}>
         {/* Left Pane: Code & Evidence */}
         <div style={{ 
-          background: 'var(--bg-card)', 
+          background: 'var(--bg-surface)', 
           borderRadius: 'var(--radius-lg)', 
-          border: '1px solid var(--border-subtle)', 
+          border: '1px solid var(--border-default)', 
           display: 'flex', 
           flexDirection: 'column', 
-          overflow: 'hidden' 
+          overflow: 'hidden',
+          boxShadow: 'var(--shadow-sm)'
         }}>
           {/* Sub-tabs */}
-          <div style={{ display: 'flex', background: '#0a0d15', borderBottom: '1px solid var(--border-subtle)', padding: '6px 12px', gap: '6px' }}>
+          <div style={{ display: 'flex', background: 'var(--bg-subtle)', borderBottom: '1px solid var(--border-default)', padding: '6px 12px', gap: '6px' }}>
             <button 
               className={`btn btn-sm ${leftTab === 'code' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setLeftTab('code')}
@@ -116,14 +117,15 @@ export default function GradingWorkspace({ submission, onBack }) {
           <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
             {leftTab === 'code' && (
               <pre style={{ 
-                background: '#090b11', 
-                color: '#cbd5e1', 
+                background: 'var(--bg-dark-code)', 
+                color: '#F8FAFC', 
                 padding: '16px', 
                 borderRadius: '8px', 
                 fontFamily: 'var(--font-mono)', 
                 fontSize: '13px', 
                 lineHeight: 1.6,
-                margin: 0
+                margin: 0,
+                border: '1px solid #1E293B'
               }}>
                 {assignment.studentSubmission?.code || `def reverse_words(s: str) -> str:
     words = s.strip().split()
@@ -139,7 +141,7 @@ if __name__ == "__main__":
             {leftTab === 'tests' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <h4 style={{ fontSize: '14px', color: '#fff' }}>Kết quả Hidden Tests (Auto-Grader)</h4>
+                  <h4 style={{ fontSize: '14px', color: 'var(--text-primary)' }}>Kết quả Hidden Tests (Auto-Grader)</h4>
                   <span className="badge badge-completed">Pass 4 / 4 Tests (10.0 pts)</span>
                 </div>
                 <div className="data-table-container">
@@ -196,15 +198,16 @@ if __name__ == "__main__":
 
         {/* Right Pane: Rubric & Plagiarism Tabs */}
         <div style={{ 
-          background: 'var(--bg-card)', 
+          background: 'var(--bg-surface)', 
           borderRadius: 'var(--radius-lg)', 
-          border: '1px solid var(--border-subtle)', 
+          border: '1px solid var(--border-default)', 
           display: 'flex', 
           flexDirection: 'column', 
-          overflow: 'hidden' 
+          overflow: 'hidden',
+          boxShadow: 'var(--shadow-sm)'
         }}>
           {/* Sub-tabs */}
-          <div style={{ display: 'flex', background: '#0a0d15', borderBottom: '1px solid var(--border-subtle)', padding: '6px 12px', gap: '6px' }}>
+          <div style={{ display: 'flex', background: 'var(--bg-subtle)', borderBottom: '1px solid var(--border-default)', padding: '6px 12px', gap: '6px' }}>
             <button 
               className={`btn btn-sm ${rightTab === 'rubric' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setRightTab('rubric')}
@@ -224,12 +227,12 @@ if __name__ == "__main__":
             {rightTab === 'rubric' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 {/* Rubric Criteria 1 */}
-                <div style={{ background: 'var(--bg-elevated)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-default)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontWeight: 600, color: '#fff', fontSize: '13.5px' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '13.5px' }}>
                       1. Correctness (Hidden Test Cases) - Trọng số 50%
                     </span>
-                    <span style={{ fontWeight: 700, color: 'var(--primary)' }}>{correctnessScore} / 10</span>
+                    <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{correctnessScore} / 10</span>
                   </div>
                   <input 
                     type="range" 
@@ -238,7 +241,7 @@ if __name__ == "__main__":
                     step="0.5" 
                     value={correctnessScore} 
                     onChange={e => setCorrectnessScore(Number(e.target.value))}
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', accentColor: 'var(--brand-primary)' }}
                   />
                   <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', marginTop: '4px' }}>
                     * Tự động đồng bộ từ tỷ lệ pass test trong Docker Sandbox.
@@ -246,12 +249,12 @@ if __name__ == "__main__":
                 </div>
 
                 {/* Rubric Criteria 2 */}
-                <div style={{ background: 'var(--bg-elevated)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-default)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontWeight: 600, color: '#fff', fontSize: '13.5px' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '13.5px' }}>
                       2. Code Quality & PEP8/Style - Trọng số 25%
                     </span>
-                    <span style={{ fontWeight: 700, color: 'var(--primary)' }}>{qualityScore} / 10</span>
+                    <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{qualityScore} / 10</span>
                   </div>
                   <input 
                     type="range" 
@@ -260,17 +263,17 @@ if __name__ == "__main__":
                     step="0.5" 
                     value={qualityScore} 
                     onChange={e => setQualityScore(Number(e.target.value))}
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', accentColor: 'var(--brand-primary)' }}
                   />
                 </div>
 
                 {/* Rubric Criteria 3 */}
-                <div style={{ background: 'var(--bg-elevated)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-default)', padding: '14px', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontWeight: 600, color: '#fff', fontSize: '13.5px' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '13.5px' }}>
                       3. Thuật toán & Tối ưu Complexity - Trọng số 25%
                     </span>
-                    <span style={{ fontWeight: 700, color: 'var(--primary)' }}>{complexityScore} / 10</span>
+                    <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{complexityScore} / 10</span>
                   </div>
                   <input 
                     type="range" 
@@ -279,7 +282,7 @@ if __name__ == "__main__":
                     step="0.5" 
                     value={complexityScore} 
                     onChange={e => setComplexityScore(Number(e.target.value))}
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', accentColor: 'var(--brand-primary)' }}
                   />
                 </div>
 

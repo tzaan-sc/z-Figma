@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { 
   GraduationCap, 
-  Code, 
+  Code2, 
   User, 
   LogOut, 
   Sparkles, 
@@ -32,15 +32,17 @@ export default function Navbar() {
   return (
     <>
       <header className="top-nav">
-        {/* Brand */}
+        {/* Brand: CodeAssess / ETV Design System */}
         <div className="nav-brand">
           <div className="brand-icon">
-            <Code size={19} />
+            <Code2 size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '15px', fontWeight: 800, lineHeight: 1.2 }}>AI CODING TUTOR</div>
-            <div style={{ fontSize: '10.5px', color: 'var(--text-accent)', letterSpacing: '0.06em', fontWeight: 600 }}>
-              AUTO-GRADER PLATFORM
+            <div style={{ fontSize: '16px', fontWeight: 800, lineHeight: 1.2, color: 'var(--brand-primary)', letterSpacing: '-0.02em' }}>
+              CodeAssess
+            </div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.08em', fontWeight: 700, textTransform: 'uppercase' }}>
+              ETV DESIGN SYSTEM
             </div>
           </div>
         </div>
@@ -71,10 +73,10 @@ export default function Navbar() {
               {currentUser.avatar || 'US'}
             </div>
             <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
-              <div style={{ fontSize: '13px', fontWeight: 700, color: '#fff' }}>
+              <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)' }}>
                 {currentUser.name}
               </div>
-              <div style={{ fontSize: '11px', color: 'var(--text-accent)' }}>
+              <div style={{ fontSize: '11px', color: 'var(--brand-primary)', fontWeight: 600 }}>
                 {currentUser.roleLabel}
               </div>
             </div>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Clock, CheckCircle2, AlertCircle, Lock, ShieldCheck, Flame, Cpu } from 'lucide-react';
+import { Clock, CheckCircle2, AlertCircle, Lock, ShieldCheck, Flame, Cpu, Eye, EyeOff } from 'lucide-react';
 
 export default function Badge({ status, type }) {
+  // Submission Status Badges
   if (type === 'submission') {
     switch (status) {
       case 'DRAFT':
@@ -33,12 +34,13 @@ export default function Badge({ status, type }) {
     }
   }
 
+  // Class Status Badges
   if (type === 'class-status') {
     switch (status) {
       case 'ACTIVE':
         return (
           <span className="badge badge-completed">
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34d399' }} /> Hoạt động
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A', display: 'inline-block' }} /> Hoạt động
           </span>
         );
       case 'CLOSED':
@@ -50,7 +52,7 @@ export default function Badge({ status, type }) {
       case 'ARCHIVED':
         return (
           <span className="badge badge-draft">
-            <ShieldCheck size={12} /> Đã lưu trữ (Archived)
+            <ShieldCheck size={12} /> Đã lưu trữ
           </span>
         );
       default:
@@ -58,6 +60,7 @@ export default function Badge({ status, type }) {
     }
   }
 
+  // Test Case Evaluation Result (AC, WA, TLE, MLE)
   if (type === 'test-status') {
     switch (status) {
       case 'AC':
@@ -73,6 +76,25 @@ export default function Badge({ status, type }) {
     }
   }
 
+  // Test Case Classification (SAMPLE / HIDDEN - from design.md)
+  if (type === 'test-visibility' || status === 'SAMPLE' || status === 'HIDDEN') {
+    if (status === 'SAMPLE') {
+      return (
+        <span className="badge badge-sample" title="Công khai (Học viên có thể tham khảo)">
+          <Eye size={12} /> SAMPLE (Công khai)
+        </span>
+      );
+    }
+    if (status === 'HIDDEN') {
+      return (
+        <span className="badge badge-hidden" title="Bảo mật (Chống gian lận)">
+          <EyeOff size={12} /> HIDDEN (Bảo mật)
+        </span>
+      );
+    }
+  }
+
+  // Difficulty Badges
   if (type === 'difficulty') {
     switch (status) {
       case 'Easy':

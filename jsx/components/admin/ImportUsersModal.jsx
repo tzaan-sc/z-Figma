@@ -52,8 +52,8 @@ export default function ImportUsersModal({ isOpen, onClose }) {
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {/* Specification note on the 5 columns */}
-        <div style={{ background: 'var(--bg-elevated)', padding: '12px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-medium)', fontSize: '13px', color: 'var(--text-secondary)' }}>
-          <strong style={{ color: '#fff' }}>Yêu cầu cấu trúc file (Đặc tả DOAN4 / RULES.md):</strong>
+        <div style={{ background: 'var(--bg-subtle)', padding: '12px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-default)', fontSize: '13px', color: 'var(--text-secondary)' }}>
+          <strong style={{ color: 'var(--text-primary)' }}>Yêu cầu cấu trúc file (Đặc tả DOAN4 / RULES.md):</strong>
           <p style={{ marginTop: '4px' }}>
             Tệp Excel/CSV bắt buộc gồm đúng <strong>5 cột</strong>: <code>Mã người dùng</code>, <code>Họ tên</code>, <code>Email</code>, <code>Vai trò</code>, <code>Lớp</code>.
           </p>
@@ -69,12 +69,12 @@ export default function ImportUsersModal({ isOpen, onClose }) {
               padding: '36px 20px',
               textAlign: 'center',
               cursor: 'pointer',
-              background: 'rgba(255, 255, 255, 0.02)',
+              background: 'var(--bg-subtle)',
               transition: 'all 0.2s ease'
             }}
           >
-            <FileSpreadsheet size={48} color="var(--primary)" style={{ margin: '0 auto 12px' }} />
-            <h4 style={{ fontSize: '15px', color: '#fff' }}>Chọn hoặc kéo thả tệp Excel/CSV vào đây</h4>
+            <FileSpreadsheet size={48} color="var(--brand-primary)" style={{ margin: '0 auto 12px' }} />
+            <h4 style={{ fontSize: '15px', color: 'var(--text-primary)' }}>Chọn hoặc kéo thả tệp Excel/CSV vào đây</h4>
             <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', marginTop: '4px' }}>
               Hỗ trợ định dạng .xlsx, .xls, .csv (Tối đa 10MB)
             </p>
@@ -85,7 +85,7 @@ export default function ImportUsersModal({ isOpen, onClose }) {
         ) : (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-              <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#fff' }}>
+              <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--text-primary)' }}>
                 Bảng xem trước & Đối soát dữ liệu (Preview):
               </span>
               <span className="badge badge-completed">

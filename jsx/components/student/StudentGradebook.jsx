@@ -18,8 +18,8 @@ export default function StudentGradebook() {
       {/* Summary KPI Cards */}
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(99, 102, 241, 0.15)', color: 'var(--primary)' }}>
-            <BookOpen size={26} />
+          <div className="stat-icon" style={{ background: 'var(--info-bg)', color: 'var(--brand-primary)', border: '1px solid var(--info-border)' }}>
+            <BookOpen size={24} />
           </div>
           <div>
             <div className="stat-value">{assignments.length}</div>
@@ -28,8 +28,8 @@ export default function StudentGradebook() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--success)' }}>
-            <Award size={26} />
+          <div className="stat-icon" style={{ background: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
+            <Award size={24} />
           </div>
           <div>
             <div className="stat-value">9.5 / 10</div>
@@ -38,8 +38,8 @@ export default function StudentGradebook() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(59, 130, 246, 0.15)', color: 'var(--info)' }}>
-            <CheckCircle2 size={26} />
+          <div className="stat-icon" style={{ background: 'var(--bg-subtle)', color: 'var(--brand-primary)', border: '1px solid var(--border-default)' }}>
+            <CheckCircle2 size={24} />
           </div>
           <div>
             <div className="stat-value">

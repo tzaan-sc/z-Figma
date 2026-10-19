@@ -388,8 +388,8 @@ export default function TeacherAssignmentManager() {
                 defaultValue={deadlineAsg.deadline} 
               />
             </div>
-            <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(239,68,68,0.3)', marginBottom: '16px' }}>
-              <span style={{ fontSize: '12.5px', color: '#fca5a5' }}>
+            <div style={{ background: 'var(--danger-bg)', padding: '12px', borderRadius: '8px', border: '1px solid var(--danger-border)', marginBottom: '16px' }}>
+              <span style={{ fontSize: '12.5px', color: 'var(--danger-text)' }}>
                 <strong>Strict No-Late Rule:</strong> Sau thời điểm này, toàn bộ Editor sẽ khóa, hệ thống tự động chốt danh sách SUBMITTED và chạy Batch Grading. Không nhận bài nộp muộn.
               </span>
             </div>
@@ -549,10 +549,10 @@ export default function TeacherAssignmentManager() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '18px' }}>
               {classes.filter(c => c.status === 'ACTIVE').map(c => (
-                <label key={c.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', background: 'var(--bg-elevated)', borderRadius: '8px', cursor: 'pointer' }}>
-                  <input type="checkbox" defaultChecked={c.id === assignClassAsg.classId} />
+                <label key={c.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', background: 'var(--bg-subtle)', borderRadius: '8px', cursor: 'pointer', border: '1px solid var(--border-default)' }}>
+                  <input type="checkbox" defaultChecked={c.id === assignClassAsg.classId} style={{ accentColor: 'var(--brand-primary)' }} />
                   <div>
-                    <div style={{ fontWeight: 600, color: '#fff' }}>{c.code} - {c.name}</div>
+                    <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{c.code} - {c.name}</div>
                     <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{c.studentCount} Sinh viên • {c.semester}</div>
                   </div>
                 </label>

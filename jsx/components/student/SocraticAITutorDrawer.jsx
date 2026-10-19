@@ -34,9 +34,9 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
       right: 0,
       width: '480px',
       height: '100vh',
-      background: '#0e1320',
-      borderLeft: '1px solid var(--border-medium)',
-      boxShadow: '-8px 0 32px rgba(0,0,0,0.7)',
+      background: 'var(--bg-surface)',
+      borderLeft: '1px solid var(--border-default)',
+      boxShadow: 'var(--shadow-modal)',
       zIndex: 1100,
       display: 'flex',
       flexDirection: 'column',
@@ -45,30 +45,31 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
       {/* Drawer Header */}
       <div style={{
         padding: '16px 20px',
-        borderBottom: '1px solid var(--border-subtle)',
+        borderBottom: '1px solid var(--border-default)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        background: '#131a2c'
+        background: 'var(--bg-surface)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '10px',
-            background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
+            width: '38px',
+            height: '38px',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--brand-primary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: 'white'
+            color: 'white',
+            boxShadow: '0 2px 6px rgba(0, 71, 171, 0.25)'
           }}>
             <Bot size={20} />
           </div>
           <div>
-            <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', margin: 0 }}>
+            <h3 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
               AI Socratic Tutor (UC-14)
             </h3>
-            <span style={{ fontSize: '12px', color: 'var(--text-accent)' }}>
+            <span style={{ fontSize: '12px', color: 'var(--brand-primary)', fontWeight: 600 }}>
               Trợ giảng hậu kiểm sau đánh giá
             </span>
           </div>
@@ -91,18 +92,18 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
 
       {/* Pedagogic Rule Notice */}
       <div style={{
-        padding: '10px 16px',
-        background: 'rgba(139, 92, 246, 0.1)',
-        borderBottom: '1px solid rgba(139, 92, 246, 0.2)',
-        fontSize: '12px',
-        color: '#c4b5fd',
+        padding: '12px 18px',
+        background: 'var(--info-bg)',
+        borderBottom: '1px solid var(--info-border)',
+        fontSize: '12.5px',
+        color: 'var(--info-text)',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px'
+        gap: '10px'
       }}>
-        <Lightbulb size={16} />
-        <span>
-          <strong>Phương pháp Socratic:</strong> AI gợi mở tư duy và đặt câu hỏi định hướng, không giải bài hộ hay cung cấp mã nguồn trực tiếp.
+        <Lightbulb size={18} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
+        <span style={{ color: 'var(--text-primary)' }}>
+          <strong style={{ color: 'var(--brand-primary)' }}>Phương pháp Socratic:</strong> AI gợi mở tư duy và đặt câu hỏi định hướng, không giải bài hộ hay cung cấp mã nguồn trực tiếp.
         </span>
       </div>
 
@@ -113,7 +114,8 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '16px'
+        gap: '16px',
+        background: 'var(--bg-page)'
       }}>
         {history.map((msg, index) => {
           const isTutor = msg.sender === 'tutor';
@@ -128,29 +130,31 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
               }}
             >
               <div style={{
-                width: '30px',
-                height: '30px',
+                width: '32px',
+                height: '32px',
                 borderRadius: '50%',
-                background: isTutor ? 'linear-gradient(135deg, #8b5cf6, #6366f1)' : '#334155',
+                background: isTutor ? 'var(--brand-primary)' : 'var(--brand-light)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
+                color: isTutor ? '#FFFFFF' : 'var(--brand-primary)',
                 fontSize: '12px',
-                flexShrink: 0
+                flexShrink: 0,
+                boxShadow: 'var(--shadow-xs)'
               }}>
                 {isTutor ? <Bot size={16} /> : <User size={16} />}
               </div>
 
               <div style={{
                 maxWidth: '82%',
-                padding: '12px 14px',
+                padding: '12px 16px',
                 borderRadius: '12px',
                 fontSize: '13.5px',
                 lineHeight: 1.55,
-                background: isTutor ? 'var(--bg-elevated)' : 'var(--primary)',
-                color: '#fff',
-                border: isTutor ? '1px solid var(--border-medium)' : 'none'
+                background: isTutor ? 'var(--bg-surface)' : 'var(--brand-primary)',
+                color: isTutor ? 'var(--text-primary)' : '#FFFFFF',
+                border: isTutor ? '1px solid var(--border-default)' : 'none',
+                boxShadow: 'var(--shadow-xs)'
               }}>
                 {msg.text}
               </div>
@@ -162,8 +166,8 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
       {/* Chat Input Bar */}
       <form onSubmit={handleSend} style={{
         padding: '16px',
-        background: '#111726',
-        borderTop: '1px solid var(--border-subtle)',
+        background: 'var(--bg-surface)',
+        borderTop: '1px solid var(--border-default)',
         display: 'flex',
         gap: '10px'
       }}>
@@ -175,7 +179,7 @@ export default function SocraticAITutorDrawer({ isOpen, onClose, assignment }) {
           onChange={e => setInputText(e.target.value)}
           style={{ flex: 1 }}
         />
-        <button type="submit" className="btn btn-primary" style={{ padding: '0 16px' }}>
+        <button type="submit" className="btn btn-primary" style={{ padding: '0 18px' }}>
           <Send size={16} />
         </button>
       </form>

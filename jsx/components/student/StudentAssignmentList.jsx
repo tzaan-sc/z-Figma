@@ -118,10 +118,10 @@ export default function StudentAssignmentList() {
                   <span className="badge badge-draft"><Clock size={12} /> {asg.timeLimit}s</span>
                 </div>
 
-                <div style={{ background: 'rgba(0,0,0,0.2)', padding: '10px 14px', borderRadius: 'var(--radius-md)', marginBottom: '16px', fontSize: '13px' }}>
+                <div style={{ background: 'var(--bg-subtle)', padding: '12px 14px', borderRadius: 'var(--radius-md)', marginBottom: '16px', fontSize: '13px', border: '1px solid var(--border-default)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Hạn nộp bài:</span>
-                    <span style={{ color: asg.isClosed ? 'var(--danger)' : '#fff', fontWeight: 600 }}>
+                    <span style={{ color: asg.isClosed ? 'var(--danger)' : 'var(--text-primary)', fontWeight: 600 }}>
                       {asg.deadline}
                     </span>
                   </div>
@@ -240,8 +240,8 @@ export function AssignmentDetailModal({ assignment, onClose, onStartWorking }) {
         </div>
 
         {/* Problem Description */}
-        <div className="glass-card" style={{ padding: '18px', background: 'rgba(0,0,0,0.3)' }}>
-          <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }}>Mô tả bài toán</h4>
+        <div style={{ padding: '18px', background: 'var(--bg-subtle)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-default)' }}>
+          <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '10px' }}>Mô tả bài toán</h4>
           <div style={{ fontSize: '14px', lineHeight: '1.7', color: 'var(--text-secondary)', whiteSpace: 'pre-line' }}>
             {assignment.description}
           </div>
@@ -249,22 +249,25 @@ export function AssignmentDetailModal({ assignment, onClose, onStartWorking }) {
 
         {/* Sample Test Cases (Public) */}
         <div>
-          <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FileText size={16} color="var(--primary)" /> Sample Test Cases (Ví dụ công khai)
-          </h4>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FileText size={16} color="var(--brand-primary)" /> Sample Test Cases (Ví dụ công khai)
+            </h4>
+            <Badge status="SAMPLE" type="test-visibility" />
+          </div>
           <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', marginBottom: '10px' }}>
-            * Lưu ý theo quy tắc DOAN4: Sinh viên không có nút Chạy thử (Run Code) trên các Sample Test này.
+            * Lưu ý theo quy tắc hệ thống: Sinh viên không có nút Chạy thử (Run Code) trên các Sample Test này.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {assignment.sampleTests?.map((st, idx) => (
-              <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', background: 'var(--bg-primary)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
+              <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', background: 'var(--bg-subtle)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-default)' }}>
                 <div>
-                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)' }}>INPUT {st.id}</span>
-                  <pre style={{ background: '#080a10', padding: '8px', borderRadius: '4px', marginTop: '4px', fontSize: '13px', color: '#38bdf8' }}>{st.input}</pre>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--brand-primary)' }}>INPUT {st.id}</span>
+                  <pre style={{ background: 'var(--bg-dark-code)', padding: '10px', borderRadius: '6px', marginTop: '4px', fontSize: '13px', color: '#F8FAFC', border: '1px solid #1E293B' }}>{st.input}</pre>
                 </div>
                 <div>
-                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)' }}>EXPECTED OUTPUT</span>
-                  <pre style={{ background: '#080a10', padding: '8px', borderRadius: '4px', marginTop: '4px', fontSize: '13px', color: '#4ade80' }}>{st.output}</pre>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--success-text)' }}>EXPECTED OUTPUT</span>
+                  <pre style={{ background: 'var(--bg-dark-code)', padding: '10px', borderRadius: '6px', marginTop: '4px', fontSize: '13px', color: '#86EFAC', border: '1px solid #1E293B' }}>{st.output}</pre>
                 </div>
               </div>
             ))}
@@ -274,7 +277,7 @@ export function AssignmentDetailModal({ assignment, onClose, onStartWorking }) {
         {/* Rubrics */}
         {assignment.rubrics && assignment.rubrics.length > 0 && (
           <div>
-            <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Layers size={16} color="var(--warning)" /> Tiêu chí đánh giá (Rubric)
             </h4>
             <div className="data-table-container">

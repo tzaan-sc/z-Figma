@@ -49,7 +49,7 @@ export default function SubmissionResultView() {
             <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-accent)' }}>
               {assignment.code} • {assignment.className}
             </span>
-            <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#fff', margin: 0 }}>
+            <h2 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
               Kết quả bài nộp: {assignment.title}
             </h2>
           </div>
@@ -59,12 +59,8 @@ export default function SubmissionResultView() {
         {/* AI Tutor Button (UC-14) */}
         {isCompleted && (
           <button 
-            className="btn btn-primary" 
+            className="btn btn-gold" 
             onClick={() => setIsTutorOpen(true)}
-            style={{ 
-              background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-              boxShadow: '0 2px 14px rgba(139, 92, 246, 0.4)' 
-            }}
           >
             <Sparkles size={16} /> Mở AI Tutor hậu kiểm (UC-14)
           </button>
@@ -74,7 +70,7 @@ export default function SubmissionResultView() {
       {/* Overview Status Cards */}
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--success)' }}>
+          <div className="stat-icon" style={{ background: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
             <Award size={26} />
           </div>
           <div>
@@ -94,7 +90,7 @@ export default function SubmissionResultView() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(59, 130, 246, 0.15)', color: 'var(--info)' }}>
+          <div className="stat-icon" style={{ background: 'var(--info-bg)', color: 'var(--info-text)', border: '1px solid var(--info-border)' }}>
             <Clock size={26} />
           </div>
           <div>
@@ -108,7 +104,7 @@ export default function SubmissionResultView() {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(139, 92, 246, 0.15)', color: 'var(--secondary)' }}>
+          <div className="stat-icon" style={{ background: 'var(--bg-subtle)', color: 'var(--brand-primary)', border: '1px solid var(--border-default)' }}>
             <Cpu size={26} />
           </div>
           <div>
@@ -122,8 +118,8 @@ export default function SubmissionResultView() {
 
       {/* Notice if still waiting for Batch Grading */}
       {isSubmitted && !isCompleted && (
-        <div className="glass-card" style={{ borderLeft: '4px solid var(--info)', padding: '18px' }}>
-          <h4 style={{ fontSize: '15px', color: '#60a5fa', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div className="glass-card" style={{ borderLeft: '4px solid var(--info)', padding: '18px', background: 'var(--info-bg)' }}>
+          <h4 style={{ fontSize: '15px', color: 'var(--info-text)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Clock size={16} /> Bài làm đang chờ đợt chấm tập trung (Batch Grading Pipeline)
           </h4>
           <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px' }}>
@@ -158,8 +154,8 @@ export default function SubmissionResultView() {
       {activeSubTab === 'tests' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
           <div className="glass-card">
-            <h4 style={{ fontSize: '16px', color: '#fff', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Terminal size={18} color="var(--primary)" /> Chi tiết thực thi trong Docker Sandbox (Hidden Tests)
+            <h4 style={{ fontSize: '16px', color: 'var(--text-primary)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Terminal size={18} color="var(--brand-primary)" /> Chi tiết thực thi trong Docker Sandbox (Hidden Tests)
             </h4>
 
             {submission.testResults && submission.testResults.length > 0 ? (
@@ -178,11 +174,11 @@ export default function SubmissionResultView() {
                   <tbody>
                     {submission.testResults.map(tr => (
                       <tr key={tr.testId}>
-                        <td style={{ fontWeight: 600 }}>{tr.testId}</td>
+                        <td style={{ fontWeight: 600, color: 'var(--brand-primary)' }}>{tr.testId}</td>
                         <td><Badge status={tr.status} type="test-status" /></td>
                         <td style={{ fontFamily: 'var(--font-mono)' }}>{tr.time}</td>
                         <td style={{ fontFamily: 'var(--font-mono)' }}>{tr.memory}</td>
-                        <td style={{ fontWeight: 700, color: 'var(--success)' }}>+{tr.points} pts</td>
+                        <td style={{ fontWeight: 700, color: 'var(--success-text)' }}>+{tr.points} pts</td>
                         <td style={{ color: 'var(--text-muted)', fontSize: '12.5px' }}>
                           Dữ liệu I/O được ẩn để bảo mật đề thi
                         </td>
@@ -200,9 +196,9 @@ export default function SubmissionResultView() {
 
           {/* Teacher Feedback section */}
           {submission.teacherFeedback && (
-            <div className="glass-card" style={{ borderLeft: '4px solid var(--secondary)' }}>
-              <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Award size={18} color="var(--secondary)" /> Nhận xét của Giảng viên (Điểm chính thức: {submission.officialScore}/10)
+            <div className="glass-card" style={{ borderLeft: '4px solid var(--brand-primary)', background: 'var(--bg-subtle)' }}>
+              <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Award size={18} color="var(--brand-primary)" /> Nhận xét của Giảng viên (Điểm chính thức: {submission.officialScore}/10)
               </h4>
               <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
                 "{submission.teacherFeedback}"
@@ -220,7 +216,7 @@ export default function SubmissionResultView() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="glass-card">
                   <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-muted)' }}>ƯỚC LƯỢNG ĐỘ PHỨC TẠP</span>
-                  <div style={{ fontSize: '18px', fontWeight: 800, color: '#38bdf8', marginTop: '6px' }}>
+                  <div style={{ fontSize: '18px', fontWeight: 800, color: 'var(--brand-primary)', marginTop: '6px' }}>
                     {submission.aiReview.timeComplexityEstimate}
                   </div>
                   <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px' }}>
@@ -230,7 +226,7 @@ export default function SubmissionResultView() {
 
                 <div className="glass-card">
                   <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-muted)' }}>ĐỘ PHỨC TẠP CYCLOMATIC (AST)</span>
-                  <div style={{ fontSize: '18px', fontWeight: 800, color: '#4ade80', marginTop: '6px' }}>
+                  <div style={{ fontSize: '18px', fontWeight: 800, color: 'var(--success-text)', marginTop: '6px' }}>
                     Điểm số: {submission.aiReview.cyclomaticComplexity} (Mức tốt - Rất dễ bảo trì)
                   </div>
                   <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px' }}>
@@ -240,14 +236,14 @@ export default function SubmissionResultView() {
               </div>
 
               <div className="glass-card">
-                <h4 style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }}>
+                <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', marginBottom: '10px' }}>
                   Tổng quan nhận xét từ AI Reviewer
                 </h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px' }}>
                   {submission.aiReview.summary}
                 </p>
 
-                <h5 style={{ fontSize: '13.5px', color: 'var(--text-accent)', marginBottom: '8px' }}>
+                <h5 style={{ fontSize: '13.5px', color: 'var(--brand-primary)', marginBottom: '8px' }}>
                   Khuyến nghị nâng cao chất lượng code:
                 </h5>
                 <ul style={{ paddingLeft: '20px', color: 'var(--text-secondary)', fontSize: '13.5px', lineHeight: 1.7 }}>
@@ -270,19 +266,25 @@ export default function SubmissionResultView() {
 
       {/* Tab 3: Submitted Code (UC-15) */}
       {activeSubTab === 'code' && (
-        <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
-          <div style={{ padding: '12px 18px', background: '#0a0d15', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '13px', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Lock size={14} color="var(--text-muted)" /> Bản nộp duy nhất (Chế độ Read-only)
+        <div style={{ 
+          background: 'var(--bg-dark-code)', 
+          borderRadius: 'var(--radius-lg)', 
+          border: '1px solid #1E293B', 
+          overflow: 'hidden', 
+          boxShadow: 'var(--shadow-sm)' 
+        }}>
+          <div style={{ padding: '12px 18px', background: 'var(--bg-dark-code-header)', borderBottom: '1px solid #334155', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: '13px', color: '#CBD5E1', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Lock size={14} color="#94A3B8" /> Bản nộp duy nhất (Chế độ Read-only)
             </span>
-            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '12px', color: '#94A3B8' }}>
               Nộp lúc: {submission.submittedAt}
             </span>
           </div>
           <pre style={{ 
             padding: '20px', 
-            background: '#090b11', 
-            color: '#cbd5e1', 
+            background: 'var(--bg-dark-code)', 
+            color: '#F8FAFC', 
             fontFamily: 'var(--font-mono)', 
             fontSize: '13.5px', 
             lineHeight: 1.6, 

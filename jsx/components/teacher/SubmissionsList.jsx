@@ -40,10 +40,10 @@ export default function SubmissionsList({ onOpenGrading }) {
             <ArrowLeft size={14} /> Danh sách bài tập
           </button>
           <div>
-            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-accent)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--brand-primary)' }}>
               {assignment.code} • {assignment.className}
             </span>
-            <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#fff', margin: 0 }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
               Danh sách bài nộp của Sinh viên (UC-24)
             </h2>
           </div>
@@ -79,7 +79,7 @@ export default function SubmissionsList({ onOpenGrading }) {
       {/* KPI Stats */}
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(59, 130, 246, 0.15)', color: 'var(--info)' }}>
+          <div className="stat-icon" style={{ background: 'var(--info-bg)', color: 'var(--brand-primary)', border: '1px solid var(--info-border)' }}>
             <Users size={24} />
           </div>
           <div>
@@ -89,7 +89,7 @@ export default function SubmissionsList({ onOpenGrading }) {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--success)' }}>
+          <div className="stat-icon" style={{ background: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
             <CheckCircle2 size={24} />
           </div>
           <div>
@@ -101,7 +101,7 @@ export default function SubmissionsList({ onOpenGrading }) {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon" style={{ background: 'rgba(239, 68, 68, 0.15)', color: 'var(--danger)' }}>
+          <div className="stat-icon" style={{ background: 'var(--danger-bg)', color: 'var(--danger-text)', border: '1px solid var(--danger-border)' }}>
             <AlertTriangle size={24} />
           </div>
           <div>
@@ -131,7 +131,7 @@ export default function SubmissionsList({ onOpenGrading }) {
           <tbody>
             {filtered.map(sub => (
               <tr key={sub.id}>
-                <td style={{ fontWeight: 700, color: 'var(--text-accent)' }}>{sub.studentCode}</td>
+                <td style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{sub.studentCode}</td>
                 <td style={{ fontWeight: 600 }}>{sub.studentName}</td>
                 <td style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{sub.submittedAt}</td>
                 <td>
@@ -141,7 +141,7 @@ export default function SubmissionsList({ onOpenGrading }) {
                     <span className="badge badge-grading">Auto-expired</span>
                   )}
                 </td>
-                <td style={{ fontWeight: 700, color: '#38bdf8' }}>
+                <td style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>
                   {sub.autoScore !== null ? `${sub.autoScore} / 10` : '--'}
                 </td>
                 <td>

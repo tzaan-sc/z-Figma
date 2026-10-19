@@ -140,7 +140,7 @@ export default function UserManagement() {
 
               return (
                 <tr key={u.id}>
-                  <td style={{ fontWeight: 700, color: 'var(--text-accent)' }}>{u.code}</td>
+                  <td style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{u.code}</td>
                   <td>
                     <div style={{ fontWeight: 600 }}>{u.name}</div>
                     <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{u.phone || '0987654321'}</div>

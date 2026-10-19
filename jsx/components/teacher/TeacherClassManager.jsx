@@ -26,13 +26,13 @@ export default function TeacherClassManager() {
             <div key={cls.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-accent)' }}>
+                  <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--brand-primary)' }}>
                     {cls.code}
                   </span>
                   <Badge status={cls.status} type="class-status" />
                 </div>
 
-                <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '8px', color: 'var(--text-primary)' }}>
                   {cls.name}
                 </h3>
 
@@ -47,16 +47,16 @@ export default function TeacherClassManager() {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Sinh viên ghi danh:</span>
-                    <span style={{ fontWeight: 600, color: '#fff' }}>{cls.studentCount} SV</span>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{cls.studentCount} SV</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Số bài tập đã giao:</span>
-                    <span style={{ fontWeight: 600, color: '#fff' }}>{cls.assignmentCount} bài</span>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{cls.assignmentCount} bài</span>
                   </div>
                 </div>
               </div>
 
-              <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '14px', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+              <div style={{ borderTop: '1px solid var(--border-default)', paddingTop: '14px', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
                 {isActive ? (
                   <button 
                     className="btn btn-outline-danger btn-sm"

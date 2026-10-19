@@ -139,39 +139,39 @@ export default function ClassManagement() {
             <div key={cls.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-accent)' }}>
+                  <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--brand-primary)' }}>
                     {cls.code}
                   </span>
                   <Badge status={cls.status} type="class-status" />
                 </div>
 
-                <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px', color: '#fff' }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px', color: 'var(--text-primary)' }}>
                   {cls.name}
                 </h3>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
                   {cls.departmentName} • {cls.semester}
                 </p>
 
-                <div style={{ background: 'rgba(0,0,0,0.25)', padding: '12px', borderRadius: '8px', margin: '14px 0', fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-default)', padding: '12px', borderRadius: '8px', margin: '14px 0', fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Giảng viên phụ trách:</span>
-                    <span style={{ fontWeight: 600, color: cls.teacherName ? '#fff' : 'var(--warning)' }}>
+                    <span style={{ fontWeight: 600, color: cls.teacherName ? 'var(--text-primary)' : 'var(--warning-text)' }}>
                       {cls.teacherName || 'Chưa phân công'}
                     </span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Sinh viên trong lớp:</span>
-                    <span style={{ fontWeight: 700, color: '#38bdf8' }}>{cls.studentCount} SV</span>
+                    <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>{cls.studentCount} SV</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Số bài tập đã giao:</span>
-                    <span style={{ fontWeight: 700, color: '#a78bfa' }}>{cls.assignmentCount} bài</span>
+                    <span style={{ fontWeight: 700, color: 'var(--success-text)' }}>{cls.assignmentCount} bài</span>
                   </div>
                 </div>
               </div>
 
               {/* Actions per lifecycle rules */}
-              <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ borderTop: '1px solid var(--border-default)', paddingTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {/* Secondary management buttons (UC-38 & UC-39) */}
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <button 
