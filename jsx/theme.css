@@ -124,13 +124,13 @@
   --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
   --shadow-focus: 0 0 0 3px rgba(23, 45, 69, 0.16);
 
-  /* Bo góc chuẩn */
-  --radius-sm: 6px;                        /* Buttons & Inputs */
-  --radius-md: 8px;                        /* Buttons & Inputs */
-  --radius-lg: 12px;                       /* Cards & Khối lớn */
-  --radius-xl: 18px;                       /* Modals & Dialogs */
-  --radius-pill: 12px;                     /* Pill Badges */
-  --radius-full: 9999px;
+  /* Bo góc chuẩn hệ thống (Mức 3: Bo tròn rõ nét - Apple / EdTech hiện đại) */
+  --radius-sm: 10px;                       /* Nhãn phụ, badge con, tag nhỏ */
+  --radius-md: 14px;                       /* Nút bấm (Buttons) & Ô nhập liệu (Inputs, Selects) */
+  --radius-lg: 20px;                       /* Khối thẻ Card lớn, Khung bảng dữ liệu, Editor */
+  --radius-xl: 28px;                       /* Cửa sổ hộp thoại (Modals & Dialogs) */
+  --radius-pill: 16px;                     /* Pill Badges trạng thái */
+  --radius-full: 9999px;                   /* Viên thuốc bo tròn hoàn toàn */
 
   /* Font chữ */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;

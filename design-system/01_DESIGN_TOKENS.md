@@ -50,16 +50,18 @@ Mọi mã màu được quản lý tập trung tại file [theme.css](file:///d:
 
 ## 2. QUY CHUẨN BO GÓC (BORDER RADIUS SYSTEM)
 
-Hệ thống bo góc tuân thủ chặt chẽ tỉ lệ hình học để tạo cảm giác mềm mại, hiện đại:
+Hệ thống bo góc cung cấp 4 mức thiết lập (Presets) để lựa chọn theo mức độ mềm mại mong muốn:
 
-| Tên Token | Giá Trị | Áp Dụng Cho Thành Phần |
-| :--- | :--- | :--- |
-| `--radius-sm` | `6px` | Tag nhỏ, nhãn phụ, ô input nhỏ, badge con. |
-| `--radius-md` | `8px` | Nút bấm (`Buttons`), Ô nhập liệu (`Inputs`, `Selects`, `Textarea`). |
-| `--radius-lg` | `12px - 14px` | Khối thẻ Card (`.glass-card`), Khung bảng dữ liệu, Khung Editor. |
-| `--radius-xl` | `18px` | Hộp thoại nổi (`Modals`, `Drawers`, `Popups`). |
-| `--radius-pill` | `12px` | Pill Badge vuông góc bo tròn. |
-| `--radius-full` | `9999px` | Viên thuốc tròn hoàn toàn (`Role Badge`, `Active Pill`, Chấm trạng thái). |
+### 4 Mức Bo Góc Ứng Cử Viên (Candidate Presets):
+
+| Mức Bo Góc | `--radius-sm` (Nhãn con) | `--radius-md` (Nút, Input) | `--radius-lg` (Card, Table) | `--radius-xl` (Modals) | Phong Cách / Đánh Giá |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Mức 1: Tiêu chuẩn hiện tại** | `6px` | `8px` | `12px` | `18px` | Cổ điển, gọn gàng, góc cạnh rõ nét kiểu Enterprise SaaS truyền thống. |
+| **Mức 2: Bo Mềm Mại Hiện Đại (Khuyên dùng ⭐)** | `8px` | `12px` | `16px` | `22px` | **Mượt mà thanh thoát**, phong cách Notion, Linear, Figma. Cân đối hoàn hảo giữa tính chuyên nghiệp và hiện đại. |
+| **Mức 3: Bo Tròn Cao Cấp (Apple / EdTech ✨)** | `10px` | `14px` | `20px` | `28px` | **Bo tròn rõ rệt**, cực kỳ hòa quyện với nền màu vàng ngà kem và môi trường giáo dục sinh viên. |
+| **Mức 4: Bo Siêu Tròn (Pill / Organic 🚀)** | `12px` | `18px` | `26px` | `36px` | **Tròn trịa tối đa**, nút bấm và badge dạng viên thuốc dày dặn, phá cách và tươi vui. |
+
+*Lưu ý: Mọi mức đều dùng chung `--radius-full: 9999px` cho các viên thuốc tròn hoàn toàn (`Role Status Pill`, `Active Dot`).*
 
 ---
 
