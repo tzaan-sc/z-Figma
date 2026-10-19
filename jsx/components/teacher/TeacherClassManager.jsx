@@ -23,7 +23,13 @@ export default function TeacherClassManager() {
           const isActive = cls.status === 'ACTIVE';
 
           return (
-            <div key={cls.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={cls.id} 
+              className="glass-card glass-card-interactive" 
+              onClick={() => setCurrentTab('teacher-assignments')}
+              title="Bấm để xem danh sách bài tập đã giao cho lớp này (UC-23)"
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+            >
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--brand-primary)' }}>
@@ -60,14 +66,14 @@ export default function TeacherClassManager() {
                 {isActive ? (
                   <button 
                     className="btn btn-outline-danger btn-sm"
-                    onClick={() => closeClass(cls.id)}
+                    onClick={(e) => { e.stopPropagation(); closeClass(cls.id); }}
                   >
                     <Lock size={13} /> Đóng lớp học (UC-36)
                   </button>
                 ) : (
                   <button 
                     className="btn btn-success btn-sm"
-                    onClick={() => reopenClass(cls.id)}
+                    onClick={(e) => { e.stopPropagation(); reopenClass(cls.id); }}
                   >
                     <Unlock size={13} /> Mở lại lớp học (UC-36)
                   </button>

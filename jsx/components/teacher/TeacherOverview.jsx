@@ -47,12 +47,20 @@ export default function TeacherOverview() {
       {/* KPI Cards Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '18px' }}>
         {/* Card 1: Lớp phụ trách */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}>
+        <div 
+          className="glass-card glass-card-interactive" 
+          onClick={() => setCurrentTab('teacher-classes')}
+          title="Bấm để mở Quản lý lớp phụ trách (UC-36)"
+          style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}
+        >
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--brand-light)', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Users size={24} />
           </div>
-          <div>
-            <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>LỚP PHỤ TRÁCH</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>LỚP PHỤ TRÁCH</span>
+              <span style={{ fontSize: '11px', color: 'var(--brand-primary)', fontWeight: 700 }}>Xem →</span>
+            </div>
             <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>
               {teacherClasses.length} lớp
             </div>
@@ -63,12 +71,20 @@ export default function TeacherOverview() {
         </div>
 
         {/* Card 2: Bài tập đã giao */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}>
+        <div 
+          className="glass-card glass-card-interactive" 
+          onClick={() => setCurrentTab('teacher-assignments')}
+          title="Bấm để mở Quản lý bài tập (UC-17..23)"
+          style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}
+        >
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#FEF3C7', color: '#B45309', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <BookOpen size={24} />
           </div>
-          <div>
-            <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>BÀI TẬP ĐÃ GIAO</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>BÀI TẬP ĐÃ GIAO</span>
+              <span style={{ fontSize: '11px', color: '#B45309', fontWeight: 700 }}>Xem →</span>
+            </div>
             <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>
               {assignments.length} bài
             </div>
@@ -79,12 +95,20 @@ export default function TeacherOverview() {
         </div>
 
         {/* Card 3: Bài nộp chờ chấm */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}>
+        <div 
+          className="glass-card glass-card-interactive" 
+          onClick={() => setCurrentTab('teacher-submissions')}
+          title="Bấm để mở danh sách bài nộp cần xử lý (UC-24)"
+          style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}
+        >
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#DBEAFE', color: '#1D4ED8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <FileCheck size={24} />
           </div>
-          <div>
-            <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>BÀI NỘP CHỜ CHẤM</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>BÀI NỘP CHỜ CHẤM</span>
+              <span style={{ fontSize: '11px', color: '#1D4ED8', fontWeight: 700 }}>Xem →</span>
+            </div>
             <div style={{ fontSize: '24px', fontWeight: 800, color: '#1D4ED8', marginTop: '2px' }}>
               {pendingGradingCount} bài
             </div>
@@ -95,12 +119,20 @@ export default function TeacherOverview() {
         </div>
 
         {/* Card 4: Cảnh báo MOSS */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}>
+        <div 
+          className="glass-card glass-card-interactive" 
+          onClick={() => setCurrentTab('teacher-grading')}
+          title="Bấm để mở Chấm bài & Kiểm tra Đạo văn MOSS (UC-26..27)"
+          style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px' }}
+        >
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#FEE2E2', color: '#DC2626', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <AlertTriangle size={24} />
           </div>
-          <div>
-            <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>CẢNH BÁO ĐẠO VĂN</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>CẢNH BÁO ĐẠO VĂN</span>
+              <span style={{ fontSize: '11px', color: '#DC2626', fontWeight: 700 }}>Xem →</span>
+            </div>
             <div style={{ fontSize: '24px', fontWeight: 800, color: '#DC2626', marginTop: '2px' }}>
               {highMossCount} ca nghi vấn
             </div>
@@ -203,6 +235,9 @@ export default function TeacherOverview() {
             {teacherClasses.map(cls => (
               <div 
                 key={cls.id}
+                className="glass-card-interactive"
+                onClick={() => setCurrentTab('teacher-classes')}
+                title="Bấm để mở Quản lý lớp phụ trách (UC-36)"
                 style={{
                   padding: '12px 14px',
                   borderRadius: 'var(--radius-md)',

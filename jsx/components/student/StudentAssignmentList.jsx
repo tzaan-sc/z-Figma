@@ -92,7 +92,17 @@ export default function StudentAssignmentList() {
           return (
             <div 
               key={asg.id} 
-              className="glass-card" 
+              className="glass-card glass-card-interactive" 
+              onClick={() => {
+                if (isDraft) {
+                  handleOpenWorkspace(asg.id);
+                } else if (isCompleted || isSubmitted) {
+                  handleOpenResult(asg.id);
+                } else {
+                  setDetailModalAsg(asg);
+                }
+              }}
+              title={isDraft ? "Bấm để vào làm bài lập trình" : isCompleted ? "Bấm để xem kết quả & AI đánh giá" : "Bấm để xem chi tiết bài tập"}
               style={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
@@ -155,7 +165,7 @@ export default function StudentAssignmentList() {
               <div style={{ display: 'flex', gap: '10px', marginTop: '12px' }}>
                 <button 
                   className="btn btn-secondary btn-sm" 
-                  onClick={() => setDetailModalAsg(asg)}
+                  onClick={(e) => { e.stopPropagation(); setDetailModalAsg(asg); }}
                   style={{ flex: 1 }}
                 >
                   <Eye size={14} /> Chi tiết đề (UC-08)
@@ -164,7 +174,7 @@ export default function StudentAssignmentList() {
                 {isDraft && (
                   <button 
                     className="btn btn-primary btn-sm" 
-                    onClick={() => handleOpenWorkspace(asg.id)}
+                    onClick={(e) => { e.stopPropagation(); handleOpenWorkspace(asg.id); }}
                     style={{ flex: 1.2 }}
                   >
                     <Code2 size={14} /> Vào làm bài (UC-09)
@@ -174,7 +184,7 @@ export default function StudentAssignmentList() {
                 {isSubmitted && (
                   <button 
                     className="btn btn-secondary btn-sm" 
-                    onClick={() => handleOpenResult(asg.id)}
+                    onClick={(e) => { e.stopPropagation(); handleOpenResult(asg.id); }}
                     style={{ flex: 1.2, borderColor: 'var(--info)' }}
                   >
                     <Lock size={14} /> Xem bài đã nộp (UC-15)
@@ -184,7 +194,7 @@ export default function StudentAssignmentList() {
                 {isCompleted && (
                   <button 
                     className="btn btn-success btn-sm" 
-                    onClick={() => handleOpenResult(asg.id)}
+                    onClick={(e) => { e.stopPropagation(); handleOpenResult(asg.id); }}
                     style={{ flex: 1.2 }}
                   >
                     <Sparkles size={14} /> Kết quả & AI (UC-12)
