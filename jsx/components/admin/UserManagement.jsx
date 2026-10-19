@@ -254,7 +254,7 @@ export default function UserManagement() {
             </div>
           </div>
 
-          <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(99, 102, 241, 0.25)', marginBottom: '16px', fontSize: '12.5px', color: '#c7d2fe' }}>
+          <div style={{ background: 'var(--info-bg)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--info-border)', marginBottom: '16px', fontSize: '12.5px', color: 'var(--info-text)' }}>
             * Hệ thống tự động sinh <strong>Mật khẩu tạm thời</strong> và gửi qua email. Người dùng bắt buộc phải đổi mật khẩu trong lần đăng nhập đầu tiên (theo quy tắc UC-01 & UC-28).
           </div>
 

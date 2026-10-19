@@ -1,0 +1,138 @@
+/* ==========================================================================
+   ETV & CODEASSESS — CENTRAL COLOR THEME SYSTEM (theme.css)
+   FILE DUY NHẤT QUẢN LÝ TOÀN BỘ MÀU SẮC DÙNG CHUNG TOÀN HỆ THỐNG
+   Màu sắc các thành phần giao diện nương theo Sidebar (Petrol, Sky Blue & Warm Gold)
+   Chỉnh sửa các mã màu tại đây sẽ tự động cập nhật toàn bộ ứng dụng!
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     1. BẢNG MÀU SIDEBAR (THEO HÌNH MẪU: PETROL BLUE, SKY BLUE & ACTIVE GOLD)
+     ======================================================================== */
+  --sidebar-bg: #172D45;                   /* Nền chính Sidebar (Petrol Dark) */
+  --sidebar-border: rgba(255, 255, 255, 0.08); /* Đường viền bên phải sidebar */
+  --sidebar-card-bg: #0F2236;              /* Nền khung Role Status Pill */
+  --sidebar-card-border: rgba(255, 255, 255, 0.08);
+
+  /* Menu Items Sidebar */
+  --sidebar-active-bg: #93C5FD;            /* Nền mục menu đang chọn (Baby Blue / Sky Blue) */
+  --sidebar-active-text: #0F3564;          /* Chữ & icon mục đang chọn (Navy sẫm tương phản) */
+  --sidebar-active-shadow: 0 4px 14px rgba(147, 197, 253, 0.28);
+  
+  --sidebar-text: #CBD5E1;                 /* Chữ & icon menu bình thường (Bạc ánh xanh) */
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.08); /* Hiệu ứng hover menu */
+  --sidebar-hover-text: #FFFFFF;
+
+  /* Role Badge Trên Sidebar */
+  --sidebar-dot: #FDE047;                  /* Chấm tròn vàng dạ quang trạng thái hoạt động */
+  --sidebar-badge-bg: #FEF3C7;             /* Nền pill 'Active' màu vàng ngà kem */
+  --sidebar-badge-text: #1E293B;           /* Chữ 'Active' */
+
+
+  /* ========================================================================
+     2. MÀU THƯƠNG HIỆU & NÚT BẤM (NƯƠNG THEO MÀU PETROL CỦA SIDEBAR)
+     ======================================================================== */
+  --brand-primary: #172D45;                /* Xanh Petrol đồng bộ với Sidebar */
+  --brand-primary-hover: #0F2236;          /* Hover nút chính */
+  --brand-primary-active: #0A1726;
+  
+  /* Điểm nhấn phụ: Sky Blue & Light Accent (đồng điệu với menu active) */
+  --brand-accent-sky: #93C5FD;             /* Xanh da trời nhạt */
+  --brand-accent-sky-dark: #0F3564;        /* Chữ sẫm trên nền Sky */
+  --brand-light: #E0F2FE;                  /* Nền avatar, pill thẻ nhẹ */
+  --brand-neutral: #CBD5E1;
+  --brand-cta: #FDE047;                    /* Vàng ấm đồng điệu với dot sidebar */
+  --brand-cta-hover: #EAB308;
+  --brand-light-warning: #FEF3C7;
+
+  /* Aliases cho các component cũ */
+  --primary: #172D45;
+  --primary-hover: #0F2236;
+  --primary-glow: rgba(23, 45, 69, 0.2);
+  --secondary: #0284C7;
+  --accent: #172D45;
+
+
+  /* ========================================================================
+     3. MÀU BỀ MẶT & NỀN TRANG NỘI DUNG (60% NỀN SÁNG CAO CẤP)
+     ======================================================================== */
+  --bg-page: #F4F7FB;                      /* Nền trang xám ánh xanh petrol siêu nhẹ dịu mắt */
+  --bg-surface: #FFFFFF;                   /* Nền Card, Bảng, Navbar trên cùng */
+  --bg-subtle: #EDF2F7;                    /* Nền ô search, ô role switch */
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-glass: rgba(255, 255, 255, 0.96);
+
+  /* Khối Dark Code & Terminal (Monaco Code Editor, Sandbox Logs) */
+  --bg-dark-code: #0F172A;
+  --bg-dark-code-header: #1E293B;
+
+
+  /* ========================================================================
+     4. MÀU CHỮ & PHÂN CẤP THÔNG TIN (TYPOGRAPHY)
+     ======================================================================== */
+  --text-primary: #0F172A;                 /* Đen Slate 900 tương phản cao */
+  --text-secondary: #475569;               /* Xám trung tính Slate 600 */
+  --text-muted: #64748B;                   /* Slate 500 (chú thích, hạn nộp) */
+  --text-disabled: #94A3B8;                 /* Placeholder, vô hiệu hoá */
+  --text-inverse: #FFFFFF;                 /* Chữ trắng trên nền đậm / nút primary */
+  --text-accent: #172D45;                  /* Link & Brand highlight */
+
+
+  /* ========================================================================
+     5. MÀU TRẠNG THÁI HỆ THỐNG (SEMANTIC STATUS COLORS)
+     ======================================================================== */
+  /* Thành công: Đạt, Hoàn thành, 10/10 */
+  --success: #16A34A;
+  --success-text: #15803D;
+  --success-bg: #DCFCE7;
+  --success-border: #86EFAC;
+
+  /* Cảnh báo: Cần review, Gần hạn, Moss > 15% */
+  --warning: #D97706;
+  --warning-text: #B45309;
+  --warning-bg: #FEF3C7;
+  --warning-border: #FDE68A;
+
+  /* Nguy hiểm / Lỗi: Lỗi cú pháp, TLE, Đạo văn cao */
+  --danger: #DC2626;
+  --danger-text: #B91C1C;
+  --danger-bg: #FEE2E2;
+  --danger-border: #FECACA;
+
+  /* Thông tin: Đang diễn ra, SAMPLE Test Case */
+  --info: #0284C7;
+  --info-text: #0369A1;
+  --info-bg: #E0F2FE;
+  --info-border: #BAE6FD;
+
+
+  /* ========================================================================
+     6. ĐƯỜNG VIỀN & ĐỔ BÓNG (BORDERS & SHADOWS)
+     ======================================================================== */
+  --border-default: #E2E8F0;               /* 1px viền thẻ Card, Bảng, Input */
+  --border-subtle: #F1F5F9;                /* Divider mỏng */
+  --border-focus: #172D45;                 /* Viền khi focus vào Input/Form */
+  --border-medium: #CBD5E1;                /* Input border bình thường */
+  --border-active: #172D45;
+
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(23, 45, 69, 0.16);
+
+  /* Bo góc chuẩn */
+  --radius-sm: 6px;                        /* Buttons & Inputs */
+  --radius-md: 8px;                        /* Buttons & Inputs */
+  --radius-lg: 12px;                       /* Cards & Khối lớn */
+  --radius-xl: 18px;                       /* Modals & Dialogs */
+  --radius-pill: 12px;                     /* Pill Badges */
+  --radius-full: 9999px;
+
+  /* Font chữ */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}

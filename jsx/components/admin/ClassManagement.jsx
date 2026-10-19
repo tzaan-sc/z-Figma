@@ -83,19 +83,19 @@ export default function ClassManagement() {
 
       {/* Strict Lifecycle Rules Banner */}
       <div style={{ 
-        background: 'rgba(99, 102, 241, 0.08)', 
-        border: '1px solid rgba(99, 102, 241, 0.25)', 
+        background: 'var(--info-bg)', 
+        border: '1px solid var(--info-border)', 
         borderRadius: 'var(--radius-md)', 
         padding: '12px 18px',
         fontSize: '13px',
-        color: '#c7d2fe',
+        color: 'var(--info-text)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
         <div>
           <strong>Quy tắc Lifecycle chuẩn DOAN4:</strong> Hoạt động ⇄ Đã đóng (UC-36) ⇄ Lưu trữ (UC-37). 
-          <span style={{ color: '#fbbf24', marginLeft: '6px' }}>
+          <span style={{ color: 'var(--warning-text)', marginLeft: '6px', fontWeight: 600 }}>
             Hard Delete chỉ được phép khi: <code>student_count == 0</code> VÀ <code>assignment_count == 0</code>.
           </span>
         </div>

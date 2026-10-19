@@ -1,118 +1,9 @@
 /* ==========================================================================
-   CODEASSESS / ETV DESIGN SYSTEM (design.md)
-   Style: Petrol, Slate & Ivory Modern SaaS
-   Design Rules: 60-30-10 Rule, 8-Point Grid System, Precise Tokens
+   CODEASSESS / ETV DESIGN SYSTEM
+   Import file màu tập trung (theme.css): Quản lý 100% màu sắc toàn hệ thống tại đây
    ========================================================================== */
+@import './theme.css';
 
-:root {
-  /* ------------------------------------------------------------------------
-     1. BRAND COLORS (Màu Nhận Diện Thương Hiệu)
-     ------------------------------------------------------------------------ */
-  --brand-primary: #0047AB;           /* Xanh Cobalt / Deep Navy chuyên nghiệp */
-  --brand-primary-hover: #003785;
-  --brand-primary-active: #002861;
-  --brand-light: #A1C4E9;             /* Avatar placeholder, badge nền nhạt */
-  --brand-neutral: #CBD5E1;
-  --brand-cta: #FDD023;               /* Vàng kim nhấn mạnh VIP, chứng chỉ */
-  --brand-cta-hover: #EAB308;
-  --brand-light-warning: #FEF3C7;
-
-  /* ------------------------------------------------------------------------
-     2. SURFACE & BACKGROUND COLORS (Màu Nền & Bề Mặt Khối - 60% Nền Sáng)
-     ------------------------------------------------------------------------ */
-  --bg-page: #F8FAFC;                 /* Trắng xám dịu mắt, chống mỏi mắt */
-  --bg-surface: #FFFFFF;              /* Trắng tinh khiết làm nổi bật Card/Bảng */
-  --bg-subtle: #F1F5F9;               /* Ô tìm kiếm, dòng bảng hover, nested */
-  --bg-elevated: #FFFFFF;
-  --bg-dark-code: #0F172A;            /* Monaco Editor & Terminal Logs */
-  --bg-dark-code-header: #1E293B;
-
-  /* Aliases for backwards compatibility */
-  --bg-primary: #F8FAFC;
-  --bg-secondary: #FFFFFF;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F8FAFC;
-  --bg-glass: rgba(255, 255, 255, 0.96);
-
-  /* ------------------------------------------------------------------------
-     3. TEXT COLORS (Màu Chữ & Thứ Bậc Nội Dung - 30% Cấu Trúc & Text)
-     ------------------------------------------------------------------------ */
-  --text-primary: #0F172A;            /* Đen than Slate 900 tương phản cao */
-  --text-secondary: #475569;          /* Xám trung tính Slate 600 */
-  --text-muted: #64748B;              /* Slate 500 */
-  --text-disabled: #94A3B8;           /* Placeholder, disabled */
-  --text-inverse: #FFFFFF;            /* Chữ trên nền đậm/nút bấm */
-  --text-accent: #0047AB;             /* Link & Brand highlight */
-
-  /* Aliases */
-  --primary: #0047AB;
-  --primary-hover: #003785;
-  --primary-glow: rgba(0, 71, 171, 0.2);
-  --secondary: #2563EB;
-  --accent: #0047AB;
-
-  /* ------------------------------------------------------------------------
-     4. SEMANTIC STATUS COLORS (Màu Trạng Thái Hệ Thống)
-     ------------------------------------------------------------------------ */
-  /* Success: Đạt, Hoàn thành, 10/10 */
-  --success: #16A34A;
-  --success-text: #15803D;
-  --success-bg: #DCFCE7;
-  --success-border: #86EFAC;
-
-  /* Warning: Cần review, Gần hạn, Moss > 15% */
-  --warning: #D97706;
-  --warning-text: #B45309;
-  --warning-bg: #FEF3C7;
-  --warning-border: #FDE68A;
-
-  /* Error / Danger: Lỗi cú pháp, TLE, Đạo văn cao */
-  --danger: #DC2626;
-  --danger-text: #B91C1C;
-  --danger-bg: #FEE2E2;
-  --danger-border: #FECACA;
-
-  /* Info: Đang diễn ra, Thông tin học phần */
-  --info: #2563EB;
-  --info-text: #1D4ED8;
-  --info-bg: #DBEAFE;
-  --info-border: #BFDBFE;
-
-  /* ------------------------------------------------------------------------
-     5. BORDER COLORS (Đường Viền Khối)
-     ------------------------------------------------------------------------ */
-  --border-default: #E2E8F0;          /* 1px thẻ Card, Bảng, Input */
-  --border-subtle: #F1F5F9;           /* Divider mỏng */
-  --border-focus: #0047AB;            /* Viền khi focus vào Input/Form */
-  --border-medium: #CBD5E1;           /* Input border bình thường */
-  --border-active: #0047AB;
-
-  /* ------------------------------------------------------------------------
-     6. TYPOGRAPHY & FONT SYSTEM
-     ------------------------------------------------------------------------ */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-
-  /* ------------------------------------------------------------------------
-     7. BORDER RADIUS (Quy Luật Bo Góc Chuẩn)
-     ------------------------------------------------------------------------ */
-  --radius-sm: 6px;                   /* Buttons & Inputs (6px - 8px) */
-  --radius-md: 8px;                   /* Buttons & Inputs */
-  --radius-lg: 12px;                  /* Cards & Khối nội dung lớn (12px - 14px) */
-  --radius-xl: 18px;                  /* Modals & Cửa sổ nổi (16px - 20px) */
-  --radius-pill: 12px;                /* Pill Badges (10px - 12px) */
-  --radius-full: 9999px;
-
-  /* ------------------------------------------------------------------------
-     8. SHADOWS & ELEVATION (Sleek SaaS Depth)
-     ------------------------------------------------------------------------ */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
-  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(0, 71, 171, 0.18);
-}
 
 /* ==========================================================================
    GLOBAL RESET & BASE STYLES
@@ -318,8 +209,8 @@ code, pre {
   width: 270px;
   min-width: 270px;
   max-width: 270px;
-  background-color: #172D45;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
   padding: 24px 16px 32px 16px;
   display: flex;
   flex-direction: column;
@@ -364,7 +255,7 @@ code, pre {
 .etv-brand-title {
   font-size: 22px;
   font-weight: 800;
-  color: #FFFFFF;
+  color: var(--text-inverse);
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
@@ -372,7 +263,7 @@ code, pre {
 .etv-brand-subtitle {
   font-size: 10px;
   font-weight: 700;
-  color: #94A3B8;
+  color: var(--text-disabled);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-top: 3px;
@@ -383,9 +274,9 @@ code, pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0F2236;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
+  background-color: var(--sidebar-card-bg);
+  border: 1px solid var(--sidebar-card-border);
+  border-radius: var(--radius-full);
   padding: 8px 16px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -400,24 +291,24 @@ code, pre {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #FDE047;
-  box-shadow: 0 0 8px rgba(253, 224, 71, 0.7);
+  background-color: var(--sidebar-dot);
+  box-shadow: 0 0 8px var(--sidebar-dot);
   display: inline-block;
 }
 
 .etv-role-title {
   font-size: 13.5px;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-inverse);
 }
 
 .etv-status-pill {
-  background-color: #FEF3C7;
-  color: #1E293B;
+  background-color: var(--sidebar-badge-bg);
+  color: var(--sidebar-badge-text);
   font-size: 11.5px;
   font-weight: 700;
   padding: 3px 12px;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -445,25 +336,25 @@ code, pre {
   transition: all 0.18s ease;
   font-size: 14.5px;
   font-weight: 500;
-  color: #CBD5E1;
+  color: var(--sidebar-text);
   user-select: none;
   border: 1px solid transparent;
 }
 
 .etv-sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #FFFFFF;
+  background: var(--sidebar-hover-bg);
+  color: var(--sidebar-hover-text);
 }
 
 .etv-sidebar-item.active {
-  background-color: #93C5FD;
-  color: #0F3564;
+  background-color: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(147, 197, 253, 0.28);
+  box-shadow: var(--sidebar-active-shadow);
 }
 
 .etv-sidebar-item.active .etv-item-icon svg {
-  color: #0F3564;
+  color: var(--sidebar-active-text);
   stroke-width: 2.3px;
 }
 
